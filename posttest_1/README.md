@@ -131,5 +131,6 @@ public class Main {
         scanner.close();
     }
 }
+```
 
 ## 3. Output Program
