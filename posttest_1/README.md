@@ -135,3 +135,17 @@ public class Main {
 
 ## 3. Output Program
 ### 3.1 Menu Utama
+<img width="436" height="201" alt="image" src="https://github.com/user-attachments/assets/ea6ff95f-5a9c-4497-8617-7ffbb49f6cdc" />
+
+### 3.2 Create
+<img width="435" height="379" alt="image" src="https://github.com/user-attachments/assets/558ac952-978a-45cc-9145-2126197fb93f" />
+
+### 3.3 Read
+<img width="629" height="104" alt="image" src="https://github.com/user-attachments/assets/090cdcac-8921-4a58-8e4e-84e02e2ec799" />
+
+### 3.4 Update
+<img width="652" height="510" alt="image" src="https://github.com/user-attachments/assets/44d4d473-6164-4b35-a48e-7dcf059132fe" />
+
+### 3.5 Delete
+<img width="658" height="396" alt="image" src="https://github.com/user-attachments/assets/14377c6b-40a4-4fe9-b66d-2f53e7532da0" />
+
