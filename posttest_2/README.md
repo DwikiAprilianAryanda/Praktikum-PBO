@@ -222,7 +222,7 @@ public class Main {
 
 ## 3. Output Program
 ### 3.1 Menu Utama
-
+![menu utama](img/pt2_1.png)
 
 ### 3.2 Create
 <img width="435" height="379" alt="image" src="https://github.com/user-attachments/assets/558ac952-978a-45cc-9145-2126197fb93f" />
