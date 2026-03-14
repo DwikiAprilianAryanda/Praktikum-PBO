@@ -222,7 +222,7 @@ public class Main {
 
 ## 3. Output Program
 ### 3.1 Menu Utama
-![menu utama](./img/pt2_1.png)
+![menu utama](../img/pt2_1.png)
 
 ### 3.2 Create
 <img width="435" height="379" alt="image" src="https://github.com/user-attachments/assets/558ac952-978a-45cc-9145-2126197fb93f" />
@@ -235,4 +235,7 @@ public class Main {
 
 ### 3.5 Delete
 <img width="658" height="396" alt="image" src="https://github.com/user-attachments/assets/14377c6b-40a4-4fe9-b66d-2f53e7532da0" />
+
+### 3.6 Cetak JSON
+![cetak JSON](../img/pt2_2.png)
 
