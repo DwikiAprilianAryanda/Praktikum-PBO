@@ -1,4 +1,4 @@
-# Sistem Manajemen Toko Handphone 📱 (Posttest 3: Inheritance)
+# Sistem Manajemen Toko Handphone 📱
 
 ## 1. Deskripsi Singkat Program
 Sistem Manajemen Toko Handphone adalah program aplikasi CLI (Command Line Interface) berbasis Java untuk mensimulasikan manajemen data (CRUD) di toko handphone.
