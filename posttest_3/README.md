@@ -100,10 +100,18 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println("\n--- Update Data Dasar Handphone ---");
+                    System.out.println("\n--- Update Data Handphone ---");
                     if (daftarHandphone.isEmpty()) {
                         System.out.println("Data masih kosong.");
                     } else {
+                        System.out.println("Daftar Data Saat Ini:");
+                        for (int i = 0; i < daftarHandphone.size(); i++) {
+                            System.out.print((i + 1) + ". ");
+                            daftarHandphone.get(i).tampilkanData();
+                            System.out.println("");
+                        }
+                        System.out.println("-----------------------------------");
+
                         System.out.print("Masukkan nomor urut data yang ingin diubah: ");
                         int indexUpdate = scanner.nextInt() - 1;
                         scanner.nextLine();
@@ -119,6 +127,24 @@ public class Main {
 
                             System.out.print("Masukkan Harga Baru: ");
                             hpTarget.setHarga(scanner.nextInt());
+                            scanner.nextLine();
+
+                            if (hpTarget instanceof SmartphoneGaming) {
+                                SmartphoneGaming sgTarget = (SmartphoneGaming) hpTarget;
+                                System.out.print("Masukkan Sistem Operasi Baru: ");
+                                sgTarget.setSistemOperasi(scanner.nextLine());
+                                System.out.print("Masukkan Kapasitas RAM Baru (GB): ");
+                                sgTarget.setKapasitasRAM(scanner.nextInt());
+                                scanner.nextLine();
+                            } else if (hpTarget instanceof Smartphone) {
+                                Smartphone spTarget = (Smartphone) hpTarget;
+                                System.out.print("Masukkan Sistem Operasi Baru: ");
+                                spTarget.setSistemOperasi(scanner.nextLine());
+                            } else if (hpTarget instanceof FeaturePhone) {
+                                FeaturePhone fpTarget = (FeaturePhone) hpTarget;
+                                System.out.print("Masukkan Tipe Jaringan Baru: ");
+                                fpTarget.setTipeJaringan(scanner.nextLine());
+                            }
 
                             System.out.println("Data berhasil diperbarui!");
                         } else {
@@ -132,6 +158,14 @@ public class Main {
                     if (daftarHandphone.isEmpty()) {
                         System.out.println("Data masih kosong.");
                     } else {
+                        System.out.println("Daftar Data Saat Ini:");
+                        for (int i = 0; i < daftarHandphone.size(); i++) {
+                            System.out.print((i + 1) + ". ");
+                            daftarHandphone.get(i).tampilkanData();
+                            System.out.println("");
+                        }
+                        System.out.println("-----------------------------------");
+
                         System.out.print("Masukkan nomor urut data yang ingin dihapus: ");
                         int indexDelete = scanner.nextInt() - 1;
 
@@ -312,3 +346,35 @@ public class SmartphoneGaming extends Smartphone {
 
 
 ## 3. Output Program
+### 3.1 Menu Utama
+<img width="420" height="216" alt="image" src="https://github.com/user-attachments/assets/51e62b8e-6730-4bc1-b610-3ae5f1286bbb" />
+
+### 3.2 Create
+<img width="419" height="388" alt="image" src="https://github.com/user-attachments/assets/8fc65ced-953d-4bca-a09b-917b28106259" />
+
+#### 3.2.1 Feature Phone
+<img width="493" height="289" alt="image" src="https://github.com/user-attachments/assets/d46ba3b8-b6bd-4780-a466-d9d20b13f211" />
+
+#### 3.2.2 Smartphone
+<img width="389" height="288" alt="image" src="https://github.com/user-attachments/assets/2bf5d93b-44de-48a4-80fc-bf31ad5da177" />
+
+#### 3.2.3 Smartphone Gaming
+<img width="436" height="314" alt="image" src="https://github.com/user-attachments/assets/a0a06e2f-1489-4f39-a8fd-da48f69e11e0" />
+
+### 3.3 Read
+<img width="1512" height="518" alt="image" src="https://github.com/user-attachments/assets/fa276f25-e3a0-4ded-b108-0dbc00d5d8c4" />
+
+### 3.4 Update
+<img width="1534" height="529" alt="image" src="https://github.com/user-attachments/assets/8bdbff0d-3e44-4196-ae64-14d81d1349be" />
+
+#### Setelah diupdate
+<img width="1509" height="527" alt="image" src="https://github.com/user-attachments/assets/7a5445c0-f3da-4971-a9ee-df14491ca79a" />
+
+### 3.5 Delete
+<img width="1521" height="642" alt="image" src="https://github.com/user-attachments/assets/eca19493-7895-45ea-b9a5-640915c223b9" />
+
+#### Setelah dihapus
+<img width="1527" height="449" alt="image" src="https://github.com/user-attachments/assets/fb3df8ab-5834-4b08-b9b2-e17216e796da" />
+
+### 3.6 Cetak
+<img width="843" height="620" alt="image" src="https://github.com/user-attachments/assets/e4f2717b-8b62-441e-ac53-3f04157ad1ac" />
