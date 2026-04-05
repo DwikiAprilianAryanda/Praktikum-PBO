@@ -8,7 +8,7 @@ Pada Posttest 3 ini, program mengimplementasikan konsep Inheritance (Pewarisan u
 2. **Minimal 1 Tipe Inheritance:** Program menerapkan dua tipe inheritance sekaligus, yaitu:
    - **Hierarchical Inheritance:** Superclass `Handphone` diwariskan ke `FeaturePhone` dan `Smartphone` secara sejajar .
    - **Multilevel Inheritance:** Superclass `Handphone` diwariskan ke `Smartphone`, yang kemudian diturunkan lagi ke `SmartphoneGaming` .
-3. [cite_start]Penggunaan *keyword* `extends` pada deklarasi class, serta `super()` untuk memanggil konstruktor parent dan `super.tampilkanData()` untuk memanggil method parent .
+3. Penggunaan *keyword* `extends` pada deklarasi class, serta `super()` untuk memanggil konstruktor parent dan `super.tampilkanData()` untuk memanggil method parent .
 
 ## 2. Code Program
 
