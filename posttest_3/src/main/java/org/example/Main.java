@@ -85,10 +85,18 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println("\n--- Update Data Dasar Handphone ---");
+                    System.out.println("\n--- Update Data Handphone ---");
                     if (daftarHandphone.isEmpty()) {
                         System.out.println("Data masih kosong.");
                     } else {
+                        System.out.println("Daftar Data Saat Ini:");
+                        for (int i = 0; i < daftarHandphone.size(); i++) {
+                            System.out.print((i + 1) + ". ");
+                            daftarHandphone.get(i).tampilkanData();
+                            System.out.println("");
+                        }
+                        System.out.println("-----------------------------------");
+
                         System.out.print("Masukkan nomor urut data yang ingin diubah: ");
                         int indexUpdate = scanner.nextInt() - 1;
                         scanner.nextLine();
@@ -104,6 +112,24 @@ public class Main {
 
                             System.out.print("Masukkan Harga Baru: ");
                             hpTarget.setHarga(scanner.nextInt());
+                            scanner.nextLine();
+
+                            if (hpTarget instanceof SmartphoneGaming) {
+                                SmartphoneGaming sgTarget = (SmartphoneGaming) hpTarget;
+                                System.out.print("Masukkan Sistem Operasi Baru: ");
+                                sgTarget.setSistemOperasi(scanner.nextLine());
+                                System.out.print("Masukkan Kapasitas RAM Baru (GB): ");
+                                sgTarget.setKapasitasRAM(scanner.nextInt());
+                                scanner.nextLine();
+                            } else if (hpTarget instanceof Smartphone) {
+                                Smartphone spTarget = (Smartphone) hpTarget;
+                                System.out.print("Masukkan Sistem Operasi Baru: ");
+                                spTarget.setSistemOperasi(scanner.nextLine());
+                            } else if (hpTarget instanceof FeaturePhone) {
+                                FeaturePhone fpTarget = (FeaturePhone) hpTarget;
+                                System.out.print("Masukkan Tipe Jaringan Baru: ");
+                                fpTarget.setTipeJaringan(scanner.nextLine());
+                            }
 
                             System.out.println("Data berhasil diperbarui!");
                         } else {
@@ -117,6 +143,14 @@ public class Main {
                     if (daftarHandphone.isEmpty()) {
                         System.out.println("Data masih kosong.");
                     } else {
+                        System.out.println("Daftar Data Saat Ini:");
+                        for (int i = 0; i < daftarHandphone.size(); i++) {
+                            System.out.print((i + 1) + ". ");
+                            daftarHandphone.get(i).tampilkanData();
+                            System.out.println("");
+                        }
+                        System.out.println("-----------------------------------");
+
                         System.out.print("Masukkan nomor urut data yang ingin dihapus: ");
                         int indexDelete = scanner.nextInt() - 1;
 
