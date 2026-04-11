@@ -1,3 +1,18 @@
+# Sistem Manajemen Toko Handphone 📱
+
+## 1. Deskripsi Singkat Program
+Sistem Manajemen Toko Handphone adalah program aplikasi CLI (Command Line Interface) berbasis Java untuk mensimulasikan manajemen data (CRUD) di toko handphone.
+
+Pada Posttest 3 ini, program mengimplementasikan konsep Inheritance (Pewarisan untuk memisahkan spesifikasi tipe handphone menjadi lebih rinci:
+1. **Lebih dari 2 Subclass:** Program memiliki 3 subclass, yaitu `FeaturePhone`, `Smartphone`, dan `SmartphoneGaming`.
+2. **Minimal 1 Tipe Inheritance:** Program menerapkan dua tipe inheritance sekaligus, yaitu:
+   - **Hierarchical Inheritance:** Superclass `Handphone` diwariskan ke `FeaturePhone` dan `Smartphone` secara sejajar .
+   - **Multilevel Inheritance:** Superclass `Handphone` diwariskan ke `Smartphone`, yang kemudian diturunkan lagi ke `SmartphoneGaming` .
+3. Penggunaan *keyword* `extends` pada deklarasi class, serta `super()` untuk memanggil konstruktor parent dan `super.tampilkanData()` untuk memanggil method parent .
+
+## 2. Code Program
+### 2.1 Main.java
+```
 package org.example;
 
 import org.example.models.Handphone;
@@ -178,3 +193,188 @@ public class Main {
         scanner.close();
     }
 }
+```
+
+### 2.2 FeaturePhone.java
+```
+package org.example.models;
+
+public class FeaturePhone extends Handphone {
+    private String tipeJaringan;
+
+    public FeaturePhone(String merk, String nama, int harga, String tipeJaringan) {
+        super(merk, nama, harga);
+        this.tipeJaringan = tipeJaringan;
+    }
+
+    public String getTipeJaringan() {
+        return tipeJaringan;
+    }
+
+    public void setTipeJaringan(String tipeJaringan) {
+        this.tipeJaringan = tipeJaringan;
+    }
+
+    // Memodifikasi method tampilkanData bawaan parent
+    public void tampilkanData() {
+        super.tampilkanData();
+        System.out.println("  -> Tipe Jaringan: " + this.tipeJaringan);
+    }
+}
+```
+
+### 2.3 Handphone.java
+```
+package org.example.models;
+
+public class Handphone {
+
+    // PRIVATE
+    private String merk;
+    private String nama;
+    private int harga;
+
+    // PROTECTED
+    protected String distributor = "PT. Ingin Menjadi Programer Handal Tapi Malas Ngoding";
+
+    // DEFAULT
+    String status = "Tersedia";
+
+    // PUBLIC
+    public Handphone(String merk, String nama, int harga) {
+        this.merk = merk;
+        this.nama = nama;
+        setHarga(harga);
+    }
+
+    // GETTER & SETTER
+
+    public String getMerk() {
+        return merk;
+    }
+
+    public void setMerk(String merk) {
+        this.merk = merk;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public int getHarga() {
+        return harga;
+    }
+
+    // Encapsulation
+    public void setHarga(int harga) {
+        if (harga < 0) {
+            System.out.println("Peringatan: Harga tidak boleh negatif. Nilai di-set ke 0.");
+            this.harga = 0;
+        } else {
+            this.harga = harga;
+        }
+    }
+
+    // Method Public
+    public void tampilkanData() {
+        System.out.println("Merk: " + this.merk + " | Nama: " + this.nama +
+                " | Harga: Rp" + this.harga +
+                " | Distributor: " + this.distributor +
+                " | Status: " + this.status);
+    }
+}
+```
+
+### 2.4 Smartphone.java
+```
+package org.example.models;
+
+public class Smartphone extends Handphone {
+    private String sistemOperasi;
+
+    public Smartphone(String merk, String nama, int harga, String sistemOperasi) {
+        super(merk, nama, harga);
+        this.sistemOperasi = sistemOperasi;
+    }
+
+    public String getSistemOperasi() {
+        return sistemOperasi;
+    }
+
+    public void setSistemOperasi(String sistemOperasi) {
+        this.sistemOperasi = sistemOperasi;
+    }
+
+    public void tampilkanData() {
+        super.tampilkanData();
+        System.out.println("  -> Sistem Operasi: " + this.sistemOperasi);
+    }
+}
+```
+
+
+### 2.5 SmartphoneGaming.java
+```
+package org.example.models;
+
+public class SmartphoneGaming extends Smartphone {
+    private int kapasitasRAM;
+
+    public SmartphoneGaming(String merk, String nama, int harga, String sistemOperasi, int kapasitasRAM) {
+        super(merk, nama, harga, sistemOperasi);
+        this.kapasitasRAM = kapasitasRAM;
+    }
+
+    public int getKapasitasRAM() {
+        return kapasitasRAM;
+    }
+
+    public void setKapasitasRAM(int kapasitasRAM) {
+        this.kapasitasRAM = kapasitasRAM;
+    }
+
+    public void tampilkanData() {
+        super.tampilkanData();
+        System.out.println("  -> Kapasitas RAM: " + this.kapasitasRAM + " GB");
+    }
+}
+```
+
+
+## 3. Output Program
+### 3.1 Menu Utama
+<img width="420" height="216" alt="image" src="https://github.com/user-attachments/assets/51e62b8e-6730-4bc1-b610-3ae5f1286bbb" />
+
+### 3.2 Create
+<img width="419" height="388" alt="image" src="https://github.com/user-attachments/assets/8fc65ced-953d-4bca-a09b-917b28106259" />
+
+#### 3.2.1 Feature Phone
+<img width="493" height="289" alt="image" src="https://github.com/user-attachments/assets/d46ba3b8-b6bd-4780-a466-d9d20b13f211" />
+
+#### 3.2.2 Smartphone
+<img width="389" height="288" alt="image" src="https://github.com/user-attachments/assets/2bf5d93b-44de-48a4-80fc-bf31ad5da177" />
+
+#### 3.2.3 Smartphone Gaming
+<img width="436" height="314" alt="image" src="https://github.com/user-attachments/assets/a0a06e2f-1489-4f39-a8fd-da48f69e11e0" />
+
+### 3.3 Read
+<img width="1512" height="518" alt="image" src="https://github.com/user-attachments/assets/fa276f25-e3a0-4ded-b108-0dbc00d5d8c4" />
+
+### 3.4 Update
+<img width="1534" height="529" alt="image" src="https://github.com/user-attachments/assets/8bdbff0d-3e44-4196-ae64-14d81d1349be" />
+
+#### Setelah diupdate
+<img width="1509" height="527" alt="image" src="https://github.com/user-attachments/assets/7a5445c0-f3da-4971-a9ee-df14491ca79a" />
+
+### 3.5 Delete
+<img width="1521" height="642" alt="image" src="https://github.com/user-attachments/assets/eca19493-7895-45ea-b9a5-640915c223b9" />
+
+#### Setelah dihapus
+<img width="1527" height="449" alt="image" src="https://github.com/user-attachments/assets/fb3df8ab-5834-4b08-b9b2-e17216e796da" />
+
+### 3.6 Cetak
+<img width="843" height="620" alt="image" src="https://github.com/user-attachments/assets/e4f2717b-8b62-441e-ac53-3f04157ad1ac" />
