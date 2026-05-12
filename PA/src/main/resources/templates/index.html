@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistem Toko Handphone</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f4f7f6; }
+        .container { background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #0056b3; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        tr:hover { background-color: #e2eafc; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📱 Sistem Manajemen Toko Handphone</h1>
+    <p>Selamat datang! Ini adalah GUI Web pertama menggunakan Spring Boot dan Java.</p>
+
+    <a href="/tambah" style="display: inline-block; margin-bottom: 15px; padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+        ➕ Tambah Data Handphone
+    </a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Merk</th>
+            <th>Nama Handphone</th>
+            <th>Harga (Rp)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="hp, iterStat : ${listHp}">
+            <td th:text="${iterStat.count}">1</td>
+            <td th:text="${hp.merk}">Merk</td>
+            <td th:text="${hp.nama}">Nama</td>
+            <td th:text="${hp.harga}">Harga</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

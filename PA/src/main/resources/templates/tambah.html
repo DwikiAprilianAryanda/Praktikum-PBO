@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tambah Data - Sistem Toko Handphone</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 40px; background-color: #f4f7f6; }
+        .container { background-color: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 500px; margin: auto; }
+        h2 { color: #333; margin-top: 0; }
+        label { font-weight: bold; color: #555; display: block; margin-top: 15px; }
+        input, select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background-color: #0056b3; color: white; padding: 12px 15px; border: none; border-radius: 4px; cursor: pointer; width: 100%; margin-top: 20px; font-weight: bold; font-size: 16px;}
+        button:hover { background-color: #004494; }
+        .btn-kembali { display: block; text-align: center; margin-top: 15px; color: #888; text-decoration: none; }
+        .btn-kembali:hover { color: #333; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Tambah Handphone Baru</h2>
+
+    <form action="/simpan" method="POST">
+        <label>Merk:</label>
+        <input type="text" name="merk" required placeholder="Contoh: Xiaomi">
+
+        <label>Nama Handphone:</label>
+        <input type="text" name="nama" required placeholder="Contoh: Redmi Note 13">
+
+        <label>Harga (Rp):</label>
+        <input type="number" name="harga" required placeholder="Contoh: 3000000">
+
+        <label>Jenis Handphone (Inheritance):</label>
+        <select name="jenis">
+            <option value="FeaturePhone">Feature Phone</option>
+            <option value="Smartphone">Smartphone</option>
+            <option value="SmartphoneGaming">Smartphone Gaming</option>
+        </select>
+
+        <label>Spesifikasi Utama (OS / Tipe Jaringan):</label>
+        <input type="text" name="spesifikasi" required placeholder="Contoh: Android 14 / 4G">
+
+        <label>Kapasitas RAM (Khusus Gaming, isi 0 jika bukan):</label>
+        <input type="number" name="ram" value="0">
+
+        <button type="submit">Simpan Data</button>
+    </form>
+
+    <a href="/" class="btn-kembali">← Batal dan Kembali ke Beranda</a>
+</div>
+
+</body>
+</html>
