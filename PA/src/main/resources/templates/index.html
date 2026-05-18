@@ -12,15 +12,23 @@
         th { background-color: #0056b3; color: white; }
         tr:nth-child(even) { background-color: #f2f2f2; }
         tr:hover { background-color: #e2eafc; }
+
+        /* Style untuk tombol-tombol agar rapi */
+        .btn-tambah { display: inline-block; margin-bottom: 15px; padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .btn-tambah:hover { background-color: #218838; }
+        .btn-edit { background-color: #ffc107; color: black; padding: 6px 12px; text-decoration: none; border-radius: 4px; font-size: 14px; margin-right: 5px; font-weight: bold; display: inline-block; }
+        .btn-edit:hover { background-color: #e0a800; }
+        .btn-hapus { background-color: #dc3545; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold; display: inline-block; }
+        .btn-hapus:hover { background-color: #c82333; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>📱 Sistem Manajemen Toko Handphone</h1>
-    <p>Selamat datang! Ini adalah GUI Web pertama menggunakan Spring Boot dan Java.</p>
+    <p>Selamat datang! Ini adalah GUI Web menggunakan Spring Boot dan Java.</p>
 
-    <a href="/tambah" style="display: inline-block; margin-bottom: 15px; padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+    <a href="/tambah" class="btn-tambah">
         ➕ Tambah Data Handphone
     </a>
 
@@ -31,7 +39,7 @@
             <th>Merk</th>
             <th>Nama Handphone</th>
             <th>Harga (Rp)</th>
-        </tr>
+            <th>Aksi</th> </tr>
         </thead>
         <tbody>
         <tr th:each="hp, iterStat : ${listHp}">
@@ -39,6 +47,11 @@
             <td th:text="${hp.merk}">Merk</td>
             <td th:text="${hp.nama}">Nama</td>
             <td th:text="${hp.harga}">Harga</td>
+            <td>
+                <a th:href="@{/edit/{id}(id=${iterStat.index})}" class="btn-edit">Edit</a>
+
+                <a th:href="@{/hapus/{id}(id=${iterStat.index})}" class="btn-hapus" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
+            </td>
         </tr>
         </tbody>
     </table>

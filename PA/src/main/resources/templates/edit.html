@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Data - Sistem Toko Handphone</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 40px; background-color: #f4f7f6; }
+        .container { background-color: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 500px; margin: auto; }
+        h2 { color: #333; margin-top: 0; }
+        label { font-weight: bold; color: #555; display: block; margin-top: 15px; }
+        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .info-jenis { background-color: #e2eafc; padding: 10px; border-radius: 4px; font-weight: bold; margin-top: 5px; color: #0056b3; }
+        button { background-color: #ffc107; color: black; padding: 12px 15px; border: none; border-radius: 4px; cursor: pointer; width: 100%; margin-top: 20px; font-weight: bold; font-size: 16px;}
+        button:hover { background-color: #e0a800; }
+        .btn-kembali { display: block; text-align: center; margin-top: 15px; color: #888; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Modify / Edit Handphone</h2>
+
+    <form th:action="@{/update/{id}(id=${id})}" method="POST">
+        <label>Merk:</label>
+        <input type="text" name="merk" th:value="${hp.merk}" required>
+
+        <label>Nama Handphone:</label>
+        <input type="text" name="nama" th:value="${hp.nama}" required>
+
+        <label>Harga (Rp):</label>
+        <input type="number" name="harga" th:value="${hp.harga}" min="0" required>
+
+        <label>Tipe Perangkat Saat Ini:</label>
+        <div class="info-jenis" th:text="${jenisObek}">Jenis Objek</div>
+
+        <div th:if="${jenisObek == 'FeaturePhone'}">
+            <label>Tipe Jaringan Baru:</label>
+            <input type="text" name="tipeJaringan" th:value="${hp.tipeJaringan}" required>
+        </div>
+
+        <div th:if="${jenisObek == 'Smartphone' || jenisObek == 'SmartphoneGaming'}">
+            <label>Sistem Operasi (OS) Baru:</label>
+            <input type="text" name="sistemOperasi" th:value="${hp.sistemOperasi}" required>
+        </div>
+
+        <div th:if="${jenisObek == 'SmartphoneGaming'}">
+            <label>Kapasitas RAM Baru (GB):</label>
+            <input type="number" name="kapasitasRAM" th:value="${hp.kapasitasRAM}" min="0" required>
+        </div>
+
+        <button type="submit">Perbarui Data</button>
+    </form>
+
+    <a href="/" class="btn-kembali">← Batal dan Kembali</a>
+</div>
+
+</body>
+</html>

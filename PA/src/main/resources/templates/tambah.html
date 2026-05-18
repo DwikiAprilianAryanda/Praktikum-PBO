@@ -14,6 +14,32 @@
         .btn-kembali { display: block; text-align: center; margin-top: 15px; color: #888; text-decoration: none; }
         .btn-kembali:hover { color: #333; }
     </style>
+    <script>
+        // JavaScript untuk mengatur penampilan input secara dinamis
+        function sesuaikanForm() {
+            var jenis = document.getElementById("jenis").value;
+            var divJaringan = document.getElementById("div-jaringan");
+            var divOs = document.getElementById("div-os");
+            var divRam = document.getElementById("div-ram");
+
+            // Sembunyikan semua terlebih dahulu
+            divJaringan.style.display = "none";
+            divOs.style.display = "none";
+            divRam.style.display = "none";
+
+            // Tampilkan berdasarkan pilihan jenis handphone
+            if (jenis === "FeaturePhone") {
+                divJaringan.style.display = "block";
+            } else if (jenis === "Smartphone") {
+                divOs.style.display = "block";
+            } else if (jenis === "SmartphoneGaming") {
+                divOs.style.display = "block";
+                divRam.style.display = "block";
+            }
+        }
+        // Jalankan fungsi saat halaman pertama kali dimuat
+        window.onload = sesuaikanForm;
+    </script>
 </head>
 <body>
 
@@ -28,20 +54,29 @@
         <input type="text" name="nama" required placeholder="Contoh: Redmi Note 13">
 
         <label>Harga (Rp):</label>
-        <input type="number" name="harga" required placeholder="Contoh: 3000000">
+        <input type="number" name="harga" min="0" required placeholder="Contoh: 3000000">
 
         <label>Jenis Handphone (Inheritance):</label>
-        <select name="jenis">
+        <select name="jenis" id="jenis" onchange="sesuaikanForm()">
             <option value="FeaturePhone">Feature Phone</option>
-            <option value="Smartphone">Smartphone</option>
+            <option value="Smartphone" selected>Smartphone</option>
             <option value="SmartphoneGaming">Smartphone Gaming</option>
         </select>
 
-        <label>Spesifikasi Utama (OS / Tipe Jaringan):</label>
-        <input type="text" name="spesifikasi" required placeholder="Contoh: Android 14 / 4G">
+        <div id="div-jaringan">
+            <label>Tipe Jaringan:</label>
+            <input type="text" name="tipeJaringan" placeholder="Contoh: 4G LTE / 5G">
+        </div>
 
-        <label>Kapasitas RAM (Khusus Gaming, isi 0 jika bukan):</label>
-        <input type="number" name="ram" value="0">
+        <div id="div-os">
+            <label>Sistem Operasi (OS):</label>
+            <input type="text" name="sistemOperasi" placeholder="Contoh: Android 14 / iOS 17">
+        </div>
+
+        <div id="div-ram">
+            <label>Kapasitas RAM (GB):</label>
+            <input type="number" name="kapasitasRAM" min="0" value="0">
+        </div>
 
         <button type="submit">Simpan Data</button>
     </form>
