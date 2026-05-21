@@ -29,9 +29,7 @@ public class HandphoneController {
         return "tambah";
     }
 
-    // ==========================================
-    // SIMPAN DATA BARU (CREATE) - DENGAN VALIDASI MINUS
-    // ==========================================
+    // Create
     @PostMapping("/simpan")
     public String simpanData(
             @RequestParam String merk,
@@ -42,7 +40,6 @@ public class HandphoneController {
             @RequestParam(defaultValue = "") String sistemOperasi,
             @RequestParam(defaultValue = "0") int kapasitasRAM) {
 
-        // Validasi Backend: Mencegah input minus
         if (harga < 0) harga = 0;
         if (kapasitasRAM < 0) kapasitasRAM = 0;
 
@@ -65,9 +62,7 @@ public class HandphoneController {
         return "redirect:/";
     }
 
-    // ==========================================
-    // MENUJU HALAMAN MODIFIKASI DATA (EDIT)
-    // ==========================================
+    // Edit
     @GetMapping("/edit/{id}")
     public String tampilkanFormEdit(@PathVariable int id, Model model) {
         if (id < 0 || id >= daftarHandphone.size()) {
@@ -93,9 +88,7 @@ public class HandphoneController {
         return "edit";
     }
 
-    // ==========================================
-    // PROSES EKSEKUSI PEMBARUAN DATA (UPDATE)
-    // ==========================================
+    // Update
     @PostMapping("/update/{id}")
     public String perbaruiData(
             @PathVariable int id,
@@ -109,7 +102,6 @@ public class HandphoneController {
         if (id >= 0 && id < daftarHandphone.size()) {
             Handphone hpTarget = daftarHandphone.get(id);
 
-            // Validasi proteksi nilai di bawah 0
             if (harga < 0) harga = 0;
             if (kapasitasRAM < 0) kapasitasRAM = 0;
 
